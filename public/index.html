@@ -13,15 +13,24 @@
       <script src="https://cdn.tailwindcss.com"></script>
    </head>
    
-   <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+   <body class="bg-gray-100 font-sans leading-normal tracking-normal" onload="main()">
       <div class="flex md:flex-row-reverse flex-wrap">
 		
 		 <!--Main Content-->
-         <div class="w-full h-max md:w-5/6 bg-gray-100 h-full" id="home">
-            <div class="container bg-gray-100 pt-16 px-6">
-               <H1 class="text-3xl" style="font-size: 100px;"> Drink <br> More <br> With</H1> 
-            </div>
-         </div>
+<section class="w-full h-max md:w-5/6 bg-gray-100 h-full text-gray-600 body-font overflow-hidden">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap">
+      <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+        <div class="flex mb-1 flex-col">
+         <h1 style="font-size: 60px;" class="text-green-900 title-font font-medium mb-1 font-extrabold">Drink <br> More <br> With <br></h1>
+         <h2 style="font-size: 100px;" class="text-green-700 title-font font-medium mb-4 font-extrabold">Less Waste</h2>
+        </div>
+      </div>
+      <!-- <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://dummyimage.com/400x400"> -->
+      <canvas id="myCanvas" width="400" height="400" style="align-items:center ;">
+    </div>
+  </div>
+</section>
 		 
          <div class="w-full md:w-1/6 bg-green-900 md:bg-green-900 px-2 text-center fixed bottom-0 md:pt-8 md:top-0 md:left-0 h-16 md:h-screen md:border-r-4 md:border-gray-600">
             <div class="md:relative mx-auto lg:float-right lg:px-6">
@@ -40,5 +49,7 @@
             </div>
          </div>
       </div>
+      <script src="../src/glMatrix.js"></script>
+    <script src="../src/main.js"></script>
    </body>
 </html>
