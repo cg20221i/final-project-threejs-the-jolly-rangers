@@ -17,7 +17,7 @@ function ThreeCanvas() {
       }, []);
     
       return (
-        <canvas id="myThreeJsCanvas" className="fixed h-screen -z-50 pl-16"/>
+        <canvas id="myThreeJsCanvas" className="fixed h-screen -z-50 pl-16 inset-0"/>
       );
 }
 
