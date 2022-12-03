@@ -2,7 +2,7 @@ import React from "react";
 
 const DisplayTitle = () => {
   return (
-      <div className="flex h-screen pl-10 font-['Helvetica'] text-green-900">
+      <div className="flex h-screen pl-16 font-['Helvetica'] text-green-900 z-0">
         <div className="m-auto">
             <h1 className="text-[4rem] font-extrabold">Drink More</h1>
             <h1 className="text-[8rem] font-extrabold">Waste Less</h1>

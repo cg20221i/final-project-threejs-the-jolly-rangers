@@ -1,20 +1,18 @@
-import React from 'react'
-import {Sidebar, DisplayTitle, LatestProduct} from './components'
+import React from "react";
+import { Sidebar, DisplayTitle, ThreeCanvas , LatestProduct} from "./components";
 
 function App() {
   return (
     <div>
-      <Sidebar/>
-      
+      <Sidebar />
       {/* Container */}
-      <div className='pl-16'>
-        <DisplayTitle/>
-      </div>
-      <div className='pl-16'>
+      <div className="pl-16">
+        <DisplayTitle />
         <LatestProduct/>
       </div>
+      <ThreeCanvas />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
