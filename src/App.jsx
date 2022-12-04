@@ -8,14 +8,8 @@ function App() {
       {/* Container */}
       <div className="pl-16 flex">
         <DisplayTitle />
-        <ThreeCanvas />
       </div>
-      <div className="pl-16 flex">
-        <LatestProduct />
-      </div>
-      <div className="pl-16 flex">
-        <LatestProduct />
-      </div>
+      <ThreeCanvas />
     </div>
   );
 }
