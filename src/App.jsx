@@ -6,11 +6,16 @@ function App() {
     <div>
       <Sidebar />
       {/* Container */}
-      <div className="pl-16">
+      <div className="pl-16 flex">
         <DisplayTitle />
-        <LatestProduct/>
+        <ThreeCanvas />
       </div>
-      <ThreeCanvas />
+      <div className="pl-16 flex">
+        <LatestProduct />
+      </div>
+      <div className="pl-16 flex">
+        <LatestProduct />
+      </div>
     </div>
   );
 }

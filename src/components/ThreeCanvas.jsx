@@ -17,7 +17,11 @@ function ThreeCanvas() {
       }, []);
     
       return (
-        <canvas id="myThreeJsCanvas" className="fixed h-screen -z-50 pl-16 inset-0"/>
+        <div className="flex">
+        <div className="m-auto">
+          <canvas id="myThreeJsCanvas" className="-z-50 pl-16 inset-0"/>
+        </div>
+      </div>
       );
 }
 
