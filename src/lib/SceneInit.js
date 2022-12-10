@@ -99,9 +99,16 @@ export default class SceneInit {
   render() {
     // NOTE: Update uniform data on each render.
     // this.uniforms.u_time.value += this.clock.getDelta();
-    this.camera.position.x += ( mouseX - this.camera.position.x ) * 0.0003;
-		this.camera.position.y += ( - mouseY - this.camera.position.y ) * 0.0003;
+    // this.camera.position.x += ( mouseX - this.camera.position.x ) * 0.0001;
 
+    if ((this.camera.position.x  > -10 && this.camera.position.x < 10) && (this.camera.position.y  > -10 && this.camera.position.y < 10)) {
+      this.camera.position.x += ( mouseX - this.camera.position.x ) * 0.0001;
+      this.camera.position.y += ( - mouseY - this.camera.position.y ) * 0.0001;
+    }
+    else {
+      this.camera.position.x += ( mouseX - this.camera.position.x ) * -0.0001;
+      this.camera.position.y += ( - mouseY - this.camera.position.y ) * -0.0001;
+    }
     this.renderer.render(this.scene, this.camera);
   }
 
