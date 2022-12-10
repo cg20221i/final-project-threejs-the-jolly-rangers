@@ -53,6 +53,7 @@ export default class SceneInit {
     this.renderer.setClearColor( 0xffffff, 1.0);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     document.body.appendChild(this.renderer.domElement);
 
     this.clock = new THREE.Clock();
@@ -62,15 +63,22 @@ export default class SceneInit {
 
     // ambient light which is for the whole scene
     this.ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-    this.ambientLight.castShadow = true;
+    // this.ambientLight.castShadow = true;
     this.scene.add(this.ambientLight);
 
 
     // directional light - parallel sun rays
-    this.directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
+    this.directionalLight = new THREE.DirectionalLight(0x454B1B, 0.6);
+    this.directionalLight.position.set(50, 10, 90);
     this.directionalLight.castShadow = true;
-    this.directionalLight.position.set(0, 32, 64);
+    this.directionalLight.shadow.mapSize.width = 512; // default
+    this.directionalLight.shadow.mapSize.height = 512; // default
+    this.directionalLight.shadow.camera.near = 0.5; // default
+    this.directionalLight.shadow.camera.far = 500; // default
     this.scene.add(this.directionalLight);
+
+    const helper = new THREE.CameraHelper(this.directionalLight.shadow.camera);
+    this.scene.add(helper);
 
 		document.body.style.touchAction = 'none';
     document.body.addEventListener( 'pointermove', (e) => this.onPointerMove(e) );
@@ -79,8 +87,8 @@ export default class SceneInit {
     window.addEventListener('resize', () => this.onWindowResize() , false);
 
     // NOTE: Load space background.
-    // this.loader = new THREE.TextureLoader();
-    // this.scene.background = this.loader.load('./pics/space.jpeg');
+    this.loader = new THREE.TextureLoader();
+    // this.scene.background = this.loader.load('./src/assets/Starbucks.jpg');
 
     // NOTE: Declare uniforms to pass into glsl shaders.
     // this.uniforms = {

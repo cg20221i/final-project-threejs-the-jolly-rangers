@@ -38,8 +38,8 @@ function App() {
     test.initialize();
     test.animate();
 
-    const geometry = new THREE.PlaneGeometry( 40, 40 );
-    const material = new THREE.MeshPhongMaterial( {color: 0xfffff, side: THREE.DoubleSide} );
+    const geometry = new THREE.PlaneGeometry( 100, 100 );
+    const material = new THREE.MeshPhongMaterial( {color: 0xffffff, side: THREE.DoubleSide} );
     const plane = new THREE.Mesh( geometry, material );
     plane.receiveShadow = true;
     plane.rotation.x = Math.PI / -2.0;
@@ -55,7 +55,7 @@ function App() {
       loadedModel = gltfScene;
       // console.log(loadedModel);
       gltfScene.scene.castShadow = true;
-      gltfScene.scene.receiveShadow = true;
+      gltfScene.scene.receiveShadow = false;
       gltfScene.scene.rotation.x = Math.PI / -2.0;
       gltfScene.scene.position.y = -12;
       gltfScene.scene.position.x = 18;
