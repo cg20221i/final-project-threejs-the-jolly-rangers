@@ -53,6 +53,7 @@ export default class SceneInit {
     this.renderer.setClearColor( 0xffffff, 1.0);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     document.body.appendChild(this.renderer.domElement);
 
     this.clock = new THREE.Clock();
@@ -68,9 +69,16 @@ export default class SceneInit {
 
     // directional light - parallel sun rays
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
+    this.directionalLight.position.set(50, 10, 10);
     this.directionalLight.castShadow = true;
-    this.directionalLight.position.set(0, 32, 64);
+    // this.directionalLight.shadow.mapSize.width = 512; // default
+    // this.directionalLight.shadow.mapSize.height = 512; // default
+    // this.directionalLight.shadow.camera.near = 0.5; // default
+    // this.directionalLight.shadow.camera.far = 500; // default
     this.scene.add(this.directionalLight);
+
+    const helper = new THREE.CameraHelper(this.directionalLight.shadow.camera);
+    this.scene.add(helper);
 
 		document.body.style.touchAction = 'none';
     document.body.addEventListener( 'pointermove', (e) => this.onPointerMove(e) );
@@ -79,15 +87,15 @@ export default class SceneInit {
     window.addEventListener('resize', () => this.onWindowResize() , false);
 
     // NOTE: Load space background.
-    // this.loader = new THREE.TextureLoader();
-    // this.scene.background = this.loader.load('./pics/space.jpeg');
+    this.loader = new THREE.TextureLoader();
+    this.scene.background = this.loader.load('./src/assets/disc.png');
 
     // NOTE: Declare uniforms to pass into glsl shaders.
-    // this.uniforms = {
-    //   u_time: { type: 'f', value: 1.0 },
-    //   colorB: { type: 'vec3', value: new THREE.Color(0xfff000) },
-    //   colorA: { type: 'vec3', value: new THREE.Color(0xffffff) },
-    // };
+    this.uniforms = {
+      u_time: { type: 'f', value: 1.0 },
+      colorB: { type: 'vec3', value: new THREE.Color(0xfff000) },
+      colorA: { type: 'vec3', value: new THREE.Color(0xffffff) },
+    };
   }
 
   animate() {
