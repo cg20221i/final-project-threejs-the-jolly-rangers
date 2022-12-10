@@ -12,7 +12,7 @@ function ThreeCanvas() {
 
     let loadedModel;
     const glftLoader = new OBJLoader();
-    glftLoader.load('assets/tumbler/StrBucks.obj', (objScene) => {
+    glftLoader.load('./src/assets/tumbler/StrBucks.obj', (objScene) => {
       loadedModel = objScene;
 
       objScene.scene.rotation.y = Math.PI / 8;
