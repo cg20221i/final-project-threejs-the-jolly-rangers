@@ -52,7 +52,7 @@ const Sidebar = () => {
     </ul>
 
     <div className="mt-auto pb-24">
-        <p className="rotate-90 text-white text-2xl text-right">
+        <p className="rotate-90 text-white text-2xl text-right font-['Helvetica'] font-extrabold">
             TheTumblrCo.
         </p>
     </div>
