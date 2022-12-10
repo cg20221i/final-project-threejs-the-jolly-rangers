@@ -58,6 +58,7 @@ function App() {
 
     //test.scene.add(ParticleGenerator());
 
+
     const animate = () => {
       if (loadedModel) {
         //loadedModel.scene.rotation.x += 0.01;

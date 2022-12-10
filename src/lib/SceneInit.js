@@ -2,6 +2,8 @@ import * as THREE from 'three';
 //import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 //import Stats from 'three/examples/jsm/libs/stats.module';
 
+let mouseX = 0, mouseY =0;
+
 export default class SceneInit {
   constructor(canvasId) {
     // NOTE: Core components to initialize Three.js app.
@@ -37,6 +39,7 @@ export default class SceneInit {
     );
     this.camera.position.z = 48;
 
+
     // NOTE: Specify a canvas which is already created in the HTML.
     const canvas = document.getElementById(this.canvasId);
     this.renderer = new THREE.WebGLRenderer({
@@ -66,8 +69,11 @@ export default class SceneInit {
     this.directionalLight.position.set(0, 32, 64);
     this.scene.add(this.directionalLight);
 
+		document.body.style.touchAction = 'none';
+    document.body.addEventListener( 'pointermove', (e) => this.onPointerMove(e) );
+
     // if window resizes
-    window.addEventListener('resize', () => this.onWindowResize(), false);
+    window.addEventListener('resize', () => this.onWindowResize() , false);
 
     // NOTE: Load space background.
     // this.loader = new THREE.TextureLoader();
@@ -93,6 +99,9 @@ export default class SceneInit {
   render() {
     // NOTE: Update uniform data on each render.
     // this.uniforms.u_time.value += this.clock.getDelta();
+    this.camera.position.x += ( mouseX - this.camera.position.x ) * 0.0003;
+		this.camera.position.y += ( - mouseY - this.camera.position.y ) * 0.0003;
+
     this.renderer.render(this.scene, this.camera);
   }
 
@@ -100,5 +109,11 @@ export default class SceneInit {
     this.camera.aspect = window.innerWidth / window.innerHeight;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+
+  onPointerMove( event ) {
+    if ( event.isPrimary === false ) return;
+    mouseX = event.clientX - (window.innerWidth / 2);
+    mouseY = event.clientY - (window.innerHeight / 2);
   }
 }
