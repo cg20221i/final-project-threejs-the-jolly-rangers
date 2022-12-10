@@ -14,18 +14,17 @@ function App() {
     test.initialize();
     test.animate();
 
-    document
+    
 
-    const geometry = new THREE.PlaneGeometry( 100, 100 );
-    const material = new THREE.MeshPhongMaterial( {color: 0xffffff, side: THREE.DoubleSide} );
-    const plane = new THREE.Mesh( geometry, material );
-    plane.receiveShadow = true;
-    plane.rotation.x = Math.PI / -2.0;
-    plane.position.y = -20;
-    plane.position.x = 40;
-    plane.scale.set(4, 4, 4);
+    // const geometry = new THREE.PlaneGeometry( 100, 100 );
+    // const material = new THREE.MeshPhongMaterial( {color: 0xffffff, side: THREE.DoubleSide} );
+    // const plane = new THREE.Mesh( geometry, material );
+    // plane.receiveShadow = true;
+    // plane.rotation.x = Math.PI / -2.0;
+    // plane.position.y = -13;
+    // plane.position.x = 40;
+    // test.scene.add( plane );
 
-    test.scene.add( plane );
 
     let loadedModel;
     let textureLoader = new TextureLoader().load('./src/assets/texture-set/Text2.png');
@@ -34,7 +33,6 @@ function App() {
       loadedModel = gltfScene;
       // console.log(loadedModel);
       gltfScene.scene.castShadow = true;
-      gltfScene.scene.receiveShadow = false;
       gltfScene.scene.rotation.x = Math.PI / -2.0;
       gltfScene.scene.position.y = -12;
       gltfScene.scene.position.x = 18;
@@ -102,7 +100,7 @@ function App() {
       if (loadedModel) {
         //loadedModel.scene.rotation.x += 0.01;
         //loadedModel.scene.rotation.y += 0.01;
-        loadedModel.scene.rotation.z += 0.01;
+        loadedModel.scene.rotation.z += 0.005;
       }
       requestAnimationFrame(animate);
     };

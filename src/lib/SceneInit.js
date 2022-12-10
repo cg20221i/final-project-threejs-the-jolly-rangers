@@ -62,13 +62,13 @@ export default class SceneInit {
     //document.body.appendChild(this.stats.dom);
 
     // ambient light which is for the whole scene
-    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-    // this.ambientLight.castShadow = true;
+    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+    this.ambientLight.castShadow = true;
     this.scene.add(this.ambientLight);
 
 
     // directional light - parallel sun rays
-    this.directionalLight = new THREE.DirectionalLight(0x454B1B, 0.6);
+    this.directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
     this.directionalLight.position.set(50, 10, 90);
     this.directionalLight.castShadow = true;
     this.directionalLight.shadow.mapSize.width = 512; // default
@@ -77,8 +77,8 @@ export default class SceneInit {
     this.directionalLight.shadow.camera.far = 500; // default
     this.scene.add(this.directionalLight);
 
-    const helper = new THREE.CameraHelper(this.directionalLight.shadow.camera);
-    this.scene.add(helper);
+    // const helper = new THREE.CameraHelper(this.directionalLight.shadow.camera);
+    // this.scene.add(helper);
 
 		document.body.style.touchAction = 'none';
     document.body.addEventListener( 'pointermove', (e) => this.onPointerMove(e) );
