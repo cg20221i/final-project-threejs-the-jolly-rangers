@@ -21,7 +21,7 @@ function App() {
 
     let loadedModel;
     const glftLoader = new GLTFLoader();
-    glftLoader.load('./src/assets/shiba/scene.gltf', (gltfScene) => {
+    glftLoader.load('./src/assets/tumbler/StrBucks.gltf', (gltfScene) => {
       loadedModel = gltfScene;
       // console.log(loadedModel);
 
