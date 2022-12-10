@@ -3,6 +3,8 @@ import * as THREE from 'three';
 //import Stats from 'three/examples/jsm/libs/stats.module';
 
 let mouseX = 0, mouseY =0;
+const BoundaryX = 8;
+const BoundaryY = 4;
 
 export default class SceneInit {
   constructor(canvasId) {
@@ -101,14 +103,25 @@ export default class SceneInit {
     // this.uniforms.u_time.value += this.clock.getDelta();
     // this.camera.position.x += ( mouseX - this.camera.position.x ) * 0.0001;
 
-    if ((this.camera.position.x  > -10 && this.camera.position.x < 10) && (this.camera.position.y  > -10 && this.camera.position.y < 10)) {
-      this.camera.position.x += ( mouseX - this.camera.position.x ) * 0.0001;
-      this.camera.position.y += ( - mouseY - this.camera.position.y ) * 0.0001;
+    this.camera.position.x += ( mouseX - this.camera.position.x ) * 0.0001;
+    this.camera.position.y += ( - mouseY - this.camera.position.y ) * 0.0001;
+
+    if(this.camera.position.x > BoundaryX){
+      this.camera.position.x = BoundaryX;
     }
-    else {
-      this.camera.position.x += ( mouseX - this.camera.position.x ) * -0.0001;
-      this.camera.position.y += ( - mouseY - this.camera.position.y ) * -0.0001;
+
+    if(this.camera.position.x < (-1 * BoundaryX)){
+      this.camera.position.x = (-1 * BoundaryX);
     }
+
+    if(this.camera.position.y > BoundaryY){
+      this.camera.position.y = BoundaryY;
+    }
+
+    if(this.camera.position.y < (-1 * BoundaryY)){
+      this.camera.position.y = (-1 * BoundaryY);
+    }
+
     this.renderer.render(this.scene, this.camera);
   }
 
