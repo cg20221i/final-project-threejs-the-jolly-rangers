@@ -9,6 +9,8 @@ export default class SceneInit {
     this.camera = undefined;
     this.renderer = undefined;
 
+    //this.scene.background = new THREE.Color( 0xff0000 );
+
     // NOTE: Camera params;
     this.fov = 45;
     this.nearPlane = 1;
@@ -41,9 +43,9 @@ export default class SceneInit {
       canvas,
       // NOTE: Anti-aliasing smooths out the edges.
       antialias: true,
-      alpha: true,
+      //alpha: true,
     });
-    this.renderer.setClearColor( 0xffffff, 0);
+    this.renderer.setClearColor( 0xffffff, 1.0);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     // this.renderer.shadowMap.enabled = true;
     document.body.appendChild(this.renderer.domElement);
