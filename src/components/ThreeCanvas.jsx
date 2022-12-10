@@ -38,17 +38,24 @@ function App() {
     test.initialize();
     test.animate();
 
-    // const boxGeometry = new THREE.BoxGeometry(8, 8, 8);
-    // const boxMaterial = new THREE.MeshNormalMaterial();
-    // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
-    // test.scene.add(boxMesh);
+    const geometry = new THREE.PlaneGeometry( 40, 40 );
+    const material = new THREE.MeshPhongMaterial( {color: 0xfffff, side: THREE.DoubleSide} );
+    const plane = new THREE.Mesh( geometry, material );
+    plane.receiveShadow = true;
+    plane.rotation.x = Math.PI / -2.0;
+    plane.position.y = -20;
+    plane.position.x = 40;
+    plane.scale.set(4, 4, 4);
+
+    test.scene.add( plane );
 
     let loadedModel;
     const glftLoader = new GLTFLoader();
     glftLoader.load('./src/assets/tumbler/StrBucks.gltf', (gltfScene) => {
       loadedModel = gltfScene;
       // console.log(loadedModel);
-
+      gltfScene.scene.castShadow = true;
+      gltfScene.scene.receiveShadow = true;
       gltfScene.scene.rotation.x = Math.PI / -2.0;
       gltfScene.scene.position.y = -12;
       gltfScene.scene.position.x = 18;
