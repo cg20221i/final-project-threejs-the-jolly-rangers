@@ -1,24 +1,34 @@
-import React from "react";
 import { useEffect } from 'react';
-import * as THREE from 'three';
-import SceneInit from '../lib/SceneInit';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 
-function ThreeCanvas() {
+import * as THREE from 'three';
+// import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
+// import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+// import { VOXLoader } from 'three/examples/jsm/loaders/VOXLoader';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
+import SceneInit from '../lib/SceneInit';
+
+function App() {
   useEffect(() => {
     const test = new SceneInit('myThreeJsCanvas');
     test.initialize();
     test.animate();
 
-    let loadedModel;
-    const glftLoader = new OBJLoader();
-    glftLoader.load('./src/assets/tumbler/StrBucks.obj', (objScene) => {
-      loadedModel = objScene;
+    // const boxGeometry = new THREE.BoxGeometry(8, 8, 8);
+    // const boxMaterial = new THREE.MeshNormalMaterial();
+    // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
+    // test.scene.add(boxMesh);
 
-      objScene.scene.rotation.y = Math.PI / 8;
-      objScene.scene.position.y = 3;
-      objScene.scene.scale.set(10, 10, 10);
-      test.scene.add(objScene.scene);
+    let loadedModel;
+    const glftLoader = new GLTFLoader();
+    glftLoader.load('./src/assets/shiba/scene.gltf', (gltfScene) => {
+      loadedModel = gltfScene;
+      // console.log(loadedModel);
+
+      gltfScene.scene.rotation.y = Math.PI / 8;
+      gltfScene.scene.position.y = 3;
+      gltfScene.scene.scale.set(10, 10, 10);
+      test.scene.add(gltfScene.scene);
     });
 
     const animate = () => {
@@ -31,14 +41,12 @@ function ThreeCanvas() {
     };
     animate();
   }, []);
-    
-      return (
-        <div className="flex">
-        <div className="m-auto">
-          <canvas id="myThreeJsCanvas" className="-z-50 pl-16 inset-0 fixed"/>
-        </div>
-      </div>
-      );
+
+  return (
+    <div>
+      <canvas id="myThreeJsCanvas" />
+    </div>
+  );
 }
 
-export default ThreeCanvas;
+export default App;
