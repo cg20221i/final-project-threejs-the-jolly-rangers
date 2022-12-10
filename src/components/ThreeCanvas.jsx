@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-
 import * as THREE from 'three';
 import { TextureLoader } from 'three';
 // import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
@@ -9,35 +8,13 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 import SceneInit from '../lib/SceneInit';
 
-function ParticleGenerator(){
-  const geometry = new THREE.BufferGeometry();
-  const vertices = [];
-
-  const sprite = new THREE.TextureLoader().load( './src/assets/disc.png' );
-
-  for ( let i = 0; i < 10000; i ++ ) {
-
-    const x = 2000 * Math.random() - 1000;
-    const y = 2000 * Math.random() - 1000;
-    const z = 2000 * Math.random() - 1000;
-
-    vertices.push( x, y, z );
-
-  }
-
-  geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
-
-  material = new THREE.PointsMaterial( { size: 35, sizeAttenuation: true, map: sprite, alphaTest: 0.5, transparent: true } );
-  material.color.setHSL( 1.0, 0.3, 0.7 );
-
-  return new THREE.Points( geometry, material );
-}
-
 function App() {
   useEffect(() => {
     const test = new SceneInit('myThreeJsCanvas');
     test.initialize();
     test.animate();
+
+    document
 
     const geometry = new THREE.PlaneGeometry( 100, 100 );
     const material = new THREE.MeshPhongMaterial( {color: 0xffffff, side: THREE.DoubleSide} );
