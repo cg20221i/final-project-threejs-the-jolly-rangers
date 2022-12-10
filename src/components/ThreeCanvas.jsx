@@ -25,16 +25,17 @@ function App() {
       loadedModel = gltfScene;
       // console.log(loadedModel);
 
-      gltfScene.scene.rotation.y = Math.PI / 8;
-      gltfScene.scene.position.y = 3;
-      gltfScene.scene.scale.set(10, 10, 10);
+      gltfScene.scene.rotation.x = Math.PI / -2.0;
+      gltfScene.scene.position.y = -12;
+      gltfScene.scene.position.x = 18;
+      gltfScene.scene.scale.set(4, 4, 4);
       test.scene.add(gltfScene.scene);
     });
 
     const animate = () => {
       if (loadedModel) {
-        loadedModel.scene.rotation.x += 0.01;
-        loadedModel.scene.rotation.y += 0.01;
+        //loadedModel.scene.rotation.x += 0.01;
+        //loadedModel.scene.rotation.y += 0.01;
         loadedModel.scene.rotation.z += 0.01;
       }
       requestAnimationFrame(animate);
