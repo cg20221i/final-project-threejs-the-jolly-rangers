@@ -16,15 +16,15 @@ function App() {
     test.animate();
     
 
-    const geometry = new THREE.PlaneGeometry( 10000000, 10000 );
-    const material = new THREE.MeshPhongMaterial( {color: 0xffffff, depthWrite: false} );
-    const plane = new THREE.Mesh( geometry, material );
-    plane.receiveShadow = true;
-    plane.castShadow = true;
-    plane.rotation.x = Math.PI / -1.8;
-    plane.position.y = -12;
-    plane.position.x = 40;
-    test.scene.add( plane );
+    // const geometry = new THREE.PlaneGeometry( 10000000, 10000 );
+    // const material = new THREE.MeshPhongMaterial( {color: 0xffffff, depthWrite: false} );
+    // const plane = new THREE.Mesh( geometry, material );
+    // plane.receiveShadow = true;
+    // plane.castShadow = true;
+    // plane.rotation.x = Math.PI / -1.8;
+    // plane.position.y = -12;
+    // plane.position.x = 40;
+    // test.scene.add( plane );
 
     const particlesCount = 1000
     const positions = new Float32Array(particlesCount * 3)
