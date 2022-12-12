@@ -138,9 +138,11 @@ function App() {
       }
       else if (winScroll < ((SectionHeight*2)-ScrollPadding)) {
         loadedModel.scene.scale.set(5, 5, 5);
+        loadedModel.scene.position.x = 0;
       }
       else if (winScroll < ((SectionHeight*3)-ScrollPadding)) {
         loadedModel.scene.scale.set(4.5, 4.5, 4.5);
+        loadedModel.scene.position.x = 18;
       }
       else if (winScroll < ((SectionHeight*4)-ScrollPadding)) {
         loadedModel.scene.scale.set(4, 4, 4);
@@ -166,6 +168,7 @@ function App() {
 
       particles2.position.x = test.camera.position.x * 0.2;
       particles2.position.y = test.camera.position.y * 0.2;
+
 
       requestAnimationFrame(animate);
     };
