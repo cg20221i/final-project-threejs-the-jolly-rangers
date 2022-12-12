@@ -9,6 +9,10 @@ const Reviews = () => {
         <p className="text-1xl font-bold">LOVE MY NEW THETUMBLERCO</p>
         <p className="text-lg" align="justify-center">I love this cup, the color is beautiful. I have used these tumblers for 5+ years <br/>and never had issues they last forever, fit in my cup holder are larger size<br/> than most others on the market and they stay hot/cold for many hours!</p>
         <p className="text-lg">─ BRITTNEY W.</p>
+        <div><br/><br/>&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <p className="text-1xl font-bold">MY FAVORITE TUMBLER!</p>
+        <p className="text-lg" align="justify-center">What a great cup! It stays cold all day and overnight too!!</p>
+        <p className="text-lg">─ MICHELE L.</p>
         </div>
       </section>
   );
