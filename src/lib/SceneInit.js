@@ -145,7 +145,7 @@ export default class SceneInit {
 
   onPointerMove( event ) {
     if ( event.isPrimary === false ) return;
-    this.mouseX = event.clientX - (window.innerWidth / 2);
+    this.mouseX = event.clientX - (window.innerWidth / 3);
     this.mouseY = event.clientY - (window.innerHeight / 2);
   }
 }
