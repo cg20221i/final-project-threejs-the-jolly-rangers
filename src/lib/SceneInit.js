@@ -2,7 +2,6 @@ import * as THREE from 'three';
 //import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 //import Stats from 'three/examples/jsm/libs/stats.module';
 
-let mouseX = 0, mouseY =0;
 const BoundaryX = 8;
 const BoundaryY = 4;
 
@@ -29,6 +28,10 @@ export default class SceneInit {
     // NOTE: Lighting is basically required.
     this.ambientLight = undefined;
     this.directionalLight = undefined;
+
+    //Mouse Controls
+    this.mouseX = 0;
+    this.mouseY = 0;
   }
 
   initialize() {
@@ -112,8 +115,8 @@ export default class SceneInit {
     // this.uniforms.u_time.value += this.clock.getDelta();
     // this.camera.position.x += ( mouseX - this.camera.position.x ) * 0.0001;
 
-    this.camera.position.x += ( mouseX - this.camera.position.x ) * 0.0001;
-    this.camera.position.y += ( - mouseY - this.camera.position.y ) * 0.0001;
+    this.camera.position.x += ( this.mouseX - this.camera.position.x ) * 0.0001;
+    this.camera.position.y += ( - this.mouseY - this.camera.position.y ) * 0.0001;
 
     if(this.camera.position.x > BoundaryX){
       this.camera.position.x = BoundaryX;
@@ -142,7 +145,7 @@ export default class SceneInit {
 
   onPointerMove( event ) {
     if ( event.isPrimary === false ) return;
-    mouseX = event.clientX - (window.innerWidth / 2);
-    mouseY = event.clientY - (window.innerHeight / 2);
+    this.mouseX = event.clientX - (window.innerWidth / 2);
+    this.mouseY = event.clientY - (window.innerHeight / 2);
   }
 }

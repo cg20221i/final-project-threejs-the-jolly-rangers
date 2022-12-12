@@ -30,7 +30,7 @@ function App() {
     const particlesGeometry = new THREE.BufferGeometry()
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
     const particlesMaterial = new THREE.PointsMaterial({
-      color: '#000300',
+      color: '#16a34a',
       sizeAttenuation: true,
       size: 0.2
   })
@@ -39,7 +39,7 @@ function App() {
     particles.position.y = -20;
     particles2.position.y = -10;
     particles.rotation.x = Math.PI / -2.0;
-    particles2.rotation.x = Math.PI / -2.0;
+    particles2.rotation.x = Math.PI / 2.0;
     
     test.scene.add(particles);
     test.scene.add(particles2);
@@ -61,6 +61,7 @@ function App() {
       // console.log(loadedModel);
       gltfScene.scene.castShadow = true;
       gltfScene.scene.rotation.x = Math.PI / -2.0;
+      gltfScene.scene.rotation.y = Math.PI / 18.0;
       gltfScene.scene.position.y = -12;
       gltfScene.scene.position.x = 18;
       gltfScene.scene.scale.set(4, 4, 4);
@@ -125,10 +126,15 @@ function App() {
 
     const animate = () => {
       if (loadedModel) {
-        //loadedModel.scene.rotation.x += 0.01;
-        //loadedModel.scene.rotation.y += 0.01;
         loadedModel.scene.rotation.z += 0.005;
       }
+
+      particles.position.x = test.camera.position.x * 0.5;
+      particles.position.y = test.camera.position.y * 0.5;
+
+      particles2.position.x = test.camera.position.x * 0.2;
+      particles2.position.y = test.camera.position.y * 0.2;
+
       requestAnimationFrame(animate);
     };
     animate();
