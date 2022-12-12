@@ -24,6 +24,33 @@ function App() {
     // plane.position.y = -13;
     // plane.position.x = 40;
     // test.scene.add( plane );
+    const particlesCount = 1000
+    const positions = new Float32Array(particlesCount * 3)
+
+    const particlesGeometry = new THREE.BufferGeometry()
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+    const particlesMaterial = new THREE.PointsMaterial({
+      color: '#000300',
+      sizeAttenuation: true,
+      size: 0.2
+  })
+    const particles = new THREE.Points(particlesGeometry, particlesMaterial)
+    const particles2 = new THREE.Points(particlesGeometry, particlesMaterial)
+    particles.position.y = -20;
+    particles2.position.y = -10;
+    particles.rotation.x = Math.PI / -2.0;
+    particles2.rotation.x = Math.PI / -2.0;
+    
+    test.scene.add(particles);
+    test.scene.add(particles2);
+
+      for(let i = 0; i < particlesCount; i++)
+    {
+      positions[i * 3 + 0] = (Math.random() - 0.5) * 100
+      positions[i * 3 + 1] = Math.random()
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 100
+    }
+
 
 
     let loadedModel;
@@ -45,7 +72,7 @@ function App() {
       test.scene.add(gltfScene.scene);
     });
 
-    // test.scene.add(ParticleGenerator());
+
 
     document.getElementById('texture-1').addEventListener('mouseup',function(){
       loadedModel.scene.traverse(function(node){
