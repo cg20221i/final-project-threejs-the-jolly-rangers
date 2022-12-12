@@ -14,20 +14,17 @@ function App() {
     test.initialize();
     test.animate();
     
-  const ftsLoader = document.querySelector(".lds-roller")
-  const looadingCover = document.getElementById("loading-text-intro")
-  const loadingManager = new LoadingManager()
-
-    
 
     // const geometry = new THREE.PlaneGeometry( 100, 100 );
     // const material = new THREE.MeshPhongMaterial( {color: 0xffffff, side: THREE.DoubleSide} );
     // const plane = new THREE.Mesh( geometry, material );
     // plane.receiveShadow = true;
+    // plane.castShadow = true;
     // plane.rotation.x = Math.PI / -2.0;
-    // plane.position.y = -13;
+    // plane.position.y = -12;
     // plane.position.x = 40;
     // test.scene.add( plane );
+
     const particlesCount = 1000
     const positions = new Float32Array(particlesCount * 3)
 
@@ -63,6 +60,7 @@ function App() {
       loadedModel = gltfScene;
       // console.log(loadedModel);
       gltfScene.scene.castShadow = true;
+      gltfScene.scene.receiveShadow = true;
       gltfScene.scene.rotation.x = Math.PI / -2.0;
       gltfScene.scene.position.y = -12;
       gltfScene.scene.position.x = 18;

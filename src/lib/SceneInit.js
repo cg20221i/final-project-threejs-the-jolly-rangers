@@ -66,13 +66,14 @@ export default class SceneInit {
 
     // ambient light which is for the whole scene
     this.ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
-    this.ambientLight.castShadow = true;
+    // this.ambientLight.castShadow = true;
+    this.ambientLight.receiveShadow = true;
     this.scene.add(this.ambientLight);
 
 
     // directional light - parallel sun rays
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
-    this.directionalLight.position.set(50, 10, 90);
+    this.directionalLight.position.set(30, 20, 80);
     this.directionalLight.castShadow = true;
     this.directionalLight.shadow.mapSize.width = 512; // default
     this.directionalLight.shadow.mapSize.height = 512; // default
