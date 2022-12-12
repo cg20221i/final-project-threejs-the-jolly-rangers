@@ -7,7 +7,7 @@ const ProductDetail = () => {
         <p className="text-5xl font-bold">Product Detail Section</p>
         <p className="text-lg"><br/>TheTumblerCo. pairs a series of various patterns with the high-performing<br/>hydration insulation you know and love.</p>
         <p className="text-lg">Tumbler keeps your beverages cold for 9+ hours and hot for 3 hours.<br/>Stays cold even longer with drinks containing ice.</p>
-        <h2 className="text-lg"><br/>FEATURES</h2>
+        <h2 className="text-[1.5rem] font-extrabold"><br/>FEATURES</h2>
         <ul className="circles">
             <li> Cool for 9+ hours, hot for 3 hours </li>
             <li> Triple insulated </li>
@@ -15,7 +15,7 @@ const ProductDetail = () => {
             <li> Stay-put silicone bottom </li>
             <li> Stainless steel </li>
         </ul>
-        <h2 className="text-lg"><br/>DIMENSIONS</h2>
+        <h2 className="text-[1.5rem] font-extrabold"><br/>DIMENSIONS</h2>
         <ul className="circles">
             <li> Width: 3.63in </li>
             <li> Length: 3.5in </li>
