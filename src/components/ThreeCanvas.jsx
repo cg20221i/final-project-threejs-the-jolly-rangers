@@ -16,15 +16,15 @@ function App() {
     test.animate();
     
 
-    // const geometry = new THREE.PlaneGeometry( 100, 100 );
-    // const material = new THREE.MeshPhongMaterial( {color: 0xffffff, side: THREE.DoubleSide} );
-    // const plane = new THREE.Mesh( geometry, material );
-    // plane.receiveShadow = true;
-    // plane.castShadow = true;
-    // plane.rotation.x = Math.PI / -2.0;
-    // plane.position.y = -12;
-    // plane.position.x = 40;
-    // test.scene.add( plane );
+    const geometry = new THREE.PlaneGeometry( 10000000, 10000 );
+    const material = new THREE.MeshPhongMaterial( {color: 0xffffff, depthWrite: false} );
+    const plane = new THREE.Mesh( geometry, material );
+    plane.receiveShadow = true;
+    plane.castShadow = true;
+    plane.rotation.x = Math.PI / -1.8;
+    plane.position.y = -12;
+    plane.position.x = 40;
+    test.scene.add( plane );
 
     const particlesCount = 1000
     const positions = new Float32Array(particlesCount * 3)
@@ -135,7 +135,7 @@ function App() {
   
       if (winScroll < ((SectionHeight*1)-ScrollPadding)) {
         loadedModel.scene.scale.set(4, 4, 4);
-        loadedModel.scene.position.x = 18;
+        loadedModel.scene.position.x = 10;
       }
       else if (winScroll < ((SectionHeight*2)-ScrollPadding)) {
         loadedModel.scene.scale.set(5, 5, 5);
@@ -143,10 +143,11 @@ function App() {
       }
       else if (winScroll < ((SectionHeight*3)-ScrollPadding)) {
         loadedModel.scene.scale.set(4.5, 4.5, 4.5);
-        loadedModel.scene.position.x = 18;
+        loadedModel.scene.position.x = 10;
       }
       else if (winScroll < ((SectionHeight*4)-ScrollPadding)) {
         loadedModel.scene.scale.set(4, 4, 4);
+        loadedModel.scene.position.x = 18;
 
       }
       else if (winScroll < ((SectionHeight*5)-ScrollPadding)){

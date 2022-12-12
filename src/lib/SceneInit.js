@@ -72,7 +72,7 @@ export default class SceneInit {
 
     // directional light - parallel sun rays
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
-    this.directionalLight.position.set(30, 20, 80);
+    this.directionalLight.position.set(30, 30, 30);
     this.directionalLight.castShadow = true;
     this.directionalLight.shadow.mapSize.width = 512; // default
     this.directionalLight.shadow.mapSize.height = 512; // default
@@ -80,8 +80,8 @@ export default class SceneInit {
     this.directionalLight.shadow.camera.far = 500; // default
     this.scene.add(this.directionalLight);
 
-    // const helper = new THREE.CameraHelper(this.directionalLight.shadow.camera);
-    // this.scene.add(helper);
+    const helper = new THREE.CameraHelper(this.directionalLight.shadow.camera);
+    this.scene.add(helper);
 
 		document.body.style.touchAction = 'none';
     document.body.addEventListener( 'pointermove', (e) => this.onPointerMove(e) );
