@@ -64,7 +64,6 @@ function App() {
       // console.log(loadedModel);
       gltfScene.scene.castShadow = true;
       gltfScene.scene.rotation.x = Math.PI / -2.0;
-      gltfScene.scene.rotation.y = Math.PI / 18.0;
       gltfScene.scene.position.y = -12;
       gltfScene.scene.position.x = 18;
       gltfScene.scene.scale.set(4, 4, 4);
