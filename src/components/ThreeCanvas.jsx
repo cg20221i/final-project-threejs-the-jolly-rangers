@@ -135,10 +135,11 @@ function App() {
   
       if (winScroll < ((SectionHeight*1)-ScrollPadding)) {
         loadedModel.scene.scale.set(4, 4, 4);
+        loadedModel.scene.position.x = 18;
       }
       else if (winScroll < ((SectionHeight*2)-ScrollPadding)) {
         loadedModel.scene.scale.set(5, 5, 5);
-        loadedModel.scene.position.x = 0;
+        loadedModel.scene.position.x = 10;
       }
       else if (winScroll < ((SectionHeight*3)-ScrollPadding)) {
         loadedModel.scene.scale.set(4.5, 4.5, 4.5);
