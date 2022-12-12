@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import * as THREE from 'three';
+import * as TWEEN from '@tweenjs/tween.js'
 import { TextureLoader } from 'three';
 // import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 // import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
@@ -123,6 +124,37 @@ function App() {
       });
     })
 
+    let CurrentSection = 1;
+
+
+    const listenToScroll = () => {
+      let SectionHeight = document.documentElement.clientHeight;
+      let ScrollPadding = document.documentElement.clientHeight * 0.1;
+      const winScroll =document.body.scrollTop || document.documentElement.scrollTop;
+     
+  
+      if (winScroll < ((SectionHeight*1)-ScrollPadding)) {
+        loadedModel.scene.scale.set(4, 4, 4);
+      }
+      else if (winScroll < ((SectionHeight*2)-ScrollPadding)) {
+        loadedModel.scene.scale.set(5, 5, 5);
+      }
+      else if (winScroll < ((SectionHeight*3)-ScrollPadding)) {
+        loadedModel.scene.scale.set(4.5, 4.5, 4.5);
+      }
+      else if (winScroll < ((SectionHeight*4)-ScrollPadding)) {
+        loadedModel.scene.scale.set(4, 4, 4);
+
+      }
+      else if (winScroll < ((SectionHeight*5)-ScrollPadding)){
+        
+
+      }else{
+        // console.log("idle")
+      }
+    };
+
+    window.addEventListener("scroll", listenToScroll);
 
     const animate = () => {
       if (loadedModel) {

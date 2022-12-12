@@ -66,7 +66,7 @@ export default class SceneInit {
 
     // ambient light which is for the whole scene
     this.ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
-    this.ambientLight.castShadow = true;
+    //this.ambientLight.castShadow = true;
     this.scene.add(this.ambientLight);
 
 
