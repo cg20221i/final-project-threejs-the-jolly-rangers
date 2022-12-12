@@ -136,32 +136,29 @@ function App() {
       if (winScroll < ((SectionHeight*1)-ScrollPadding)) {
         loadedModel.scene.scale.set(4, 4, 4);
         loadedModel.scene.position.x = 18;
-        loadedModel.scene.rotation.x = Math.PI / -2.0;
-        loadedModel.scene.position.y = -12;
+        loadedModel.scene.rotation.y = Math.PI * 2;
       }
       else if (winScroll < ((SectionHeight*2)-ScrollPadding)) {
-        loadedModel.scene.scale.set(4, 4, 4);
-        loadedModel.scene.position.x = 18;
-        loadedModel.scene.position.y = -10;
-        loadedModel.scene.rotation.x = Math.PI / -1.3;
+        loadedModel.scene.scale.set(4.5, 4.5, 4.5);
+        loadedModel.scene.position.x = 20;
+        loadedModel.scene.rotation.y = Math.PI / -3.14;
 
       }
       else if (winScroll < ((SectionHeight*3)-ScrollPadding)) {
         loadedModel.scene.scale.set(4, 4, 4);
         loadedModel.scene.position.x = 18;
-        loadedModel.scene.rotation.x = Math.PI / -2.8;
-        loadedModel.scene.position.y = -10;
+        loadedModel.scene.rotation.y = Math.PI * 2;
       }
       else if (winScroll < ((SectionHeight*4)-ScrollPadding)) {
         loadedModel.scene.scale.set(4, 4, 4);
         loadedModel.scene.position.x = 18;
-        loadedModel.scene.rotation.x = Math.PI / -2.0;
-        loadedModel.scene.position.y = -10;
+        loadedModel.scene.rotation.y = Math.PI * 2;
 
       }
       else if (winScroll < ((SectionHeight*5)-ScrollPadding)){
-        
-
+        loadedModel.scene.scale.set(5, 5, 5);
+        loadedModel.scene.position.x = 16;
+        loadedModel.scene.rotation.y = Math.PI / -3.0;
       }else{
         // console.log("idle")
       }

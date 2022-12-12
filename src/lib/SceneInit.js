@@ -80,8 +80,8 @@ export default class SceneInit {
     this.directionalLight.shadow.camera.far = 500; // default
     this.scene.add(this.directionalLight);
 
-    const helper = new THREE.CameraHelper(this.directionalLight.shadow.camera);
-    this.scene.add(helper);
+    //const helper = new THREE.CameraHelper(this.directionalLight.shadow.camera);
+    //this.scene.add(helper);
 
 		document.body.style.touchAction = 'none';
     document.body.addEventListener( 'pointermove', (e) => this.onPointerMove(e) );
