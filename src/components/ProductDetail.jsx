@@ -15,6 +15,13 @@ const ProductDetail = () => {
             <li> Stay-put silicone bottom </li>
             <li> Stainless steel </li>
         </ul>
+        <h2 className="text-lg"><br/>DIMENSIONS</h2>
+        <ul className="circles">
+            <li> Width: 3.63in </li>
+            <li> Length: 3.5in </li>
+            <li> Height: 6.89in </li>
+            <li> Weight: 0.78lb </li>
+        </ul>
         </div>
       </section>
   );
