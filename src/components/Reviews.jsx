@@ -4,7 +4,7 @@ const Reviews = () => {
   return (
       <section id="Reviews" className="flex h-screen pl-10 font-['Helvetica'] text-green-900">
         <div className="my-auto justify-end">
-          <p className="text-5xl font-bold">Reviews Section<br/></p>
+          <p className="text-5xl font-bold">Hear from our satisfied customers!<br/></p>
           <div className="bg-white rounded-lg shadow-xl mt-4 px-8 py-4 flex gap-4 items-center transition hover:bg-green-100 hover:scale-105">
             <img src="https://mk0qomafemocnned3wjh.kinstacdn.com/wp-content/uploads/2019/02/AI-thispersondoesnotexist.jpg" alt="profpic" className="h-32 rounded-full shadow-lg"/>
             <div>

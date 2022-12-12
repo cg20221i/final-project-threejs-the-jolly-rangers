@@ -4,7 +4,7 @@ const ProductDetail = () => {
   return (
       <section id="ProductDetail" className="flex h-screen pl-10 font-['Helvetica'] text-green-900">
         <div className="my-auto justify-end">
-          <p className="text-5xl font-bold">Product Detail Section</p>
+          <p className="text-5xl font-bold">What is our product?</p>
           <p className="text-lg"><br/>TheTumblerCo. pairs a series of various patterns with the high-performing<br/>hydration insulation you know and love.</p>
           <p className="text-lg mt-2">Tumbler keeps your beverages cold for 9+ hours and hot for 3 hours.<br/>Stays cold even longer with drinks containing ice.</p>
           <div className="flex items-stretch gap-12 px-8 py-4 bg-green-800 mt-4 rounded shadow-2xl text-white">

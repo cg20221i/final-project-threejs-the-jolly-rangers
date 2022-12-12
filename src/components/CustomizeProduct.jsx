@@ -4,7 +4,7 @@ const CustomizeProduct = () => {
   return (
       <section id="CustomizeProduct" className="flex h-screen pl-10 font-['Helvetica'] text-green-900">
         <div className="my-auto justify-end">
-          <p className="text-5xl font-bold">Customize Product Section</p>
+          <p className="text-5xl font-bold">Customize and See!</p>
           <p className="text-lg my-2">Try out a variety of our curated designs to put in your soon-to-be tumblers!</p>
           <div className="grid grid-cols-3 gap-4 h-[50vh] w-[50rem] text-white">
             <button id="texture-1" className="relative bg-white rounded h-64 transition ease-out duration-150 hover:shadow-xl hover:-translate-y-2 p-0 hover:ring hover:ring-green-100 active:-translate-y-1 active:shadow-lg">
