@@ -2,7 +2,7 @@ import React from "react";
 
 const Reviews = () => {
   return (
-      <section id="Reviews" className="flex h-screen pl-10 font-['Helvetica']">
+      <section id="Reviews" className="flex h-screen pl-10 font-['Helvetica'] text-green-900">
         <div className="my-auto justify-end">
         <p className="text-5xl font-bold">Reviews Section<br/></p>
         <div className="text-green-900"><br/>&#9733; &#9733; &#9733; &#9733; &#9733;</div>
