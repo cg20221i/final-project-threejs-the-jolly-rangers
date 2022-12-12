@@ -2,7 +2,7 @@ import React from "react";
 
 const Sidebar = () => {
   return (
-    <aside class="flex flex-col items-center bg-green-700 shadow-xl w-16 h-full fixed z-50 top-0">
+    <aside class="flex flex-col items-center bg-green-700 shadow-xl w-16 h-full fixed z-50 top-0" >
 
     <ul>
         <li class="transition-colors hover:bg-green-600">

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import * as THREE from 'three';
-import { TextureLoader } from 'three';
+import { TextureLoader, LoadingManager } from 'three';
 // import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 // import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 // import { VOXLoader } from 'three/examples/jsm/loaders/VOXLoader';
@@ -13,6 +13,10 @@ function App() {
     const test = new SceneInit('myThreeJsCanvas');
     test.initialize();
     test.animate();
+    
+  const ftsLoader = document.querySelector(".lds-roller")
+  const looadingCover = document.getElementById("loading-text-intro")
+  const loadingManager = new LoadingManager()
 
     
 
@@ -36,6 +40,12 @@ function App() {
   })
     const particles = new THREE.Points(particlesGeometry, particlesMaterial)
     const particles2 = new THREE.Points(particlesGeometry, particlesMaterial)
+    for(let i = 0; i < particlesCount; i++)
+    {
+      positions[i * 3 + 0] = (Math.random() - 0.5) * 100
+      positions[i * 3 + 1] = Math.random()
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 100
+    }
     particles.position.y = -20;
     particles2.position.y = -10;
     particles.rotation.x = Math.PI / -2.0;
@@ -43,13 +53,6 @@ function App() {
     
     test.scene.add(particles);
     test.scene.add(particles2);
-
-      for(let i = 0; i < particlesCount; i++)
-    {
-      positions[i * 3 + 0] = (Math.random() - 0.5) * 100
-      positions[i * 3 + 1] = Math.random()
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 100
-    }
 
 
 
