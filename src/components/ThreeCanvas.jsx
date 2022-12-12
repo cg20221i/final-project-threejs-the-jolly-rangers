@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import * as THREE from 'three';
 import * as TWEEN from '@tweenjs/tween.js'
-import { TextureLoader } from 'three';
+import { TextureLoader, LoadingManager } from 'three';
 // import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 // import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 // import { VOXLoader } from 'three/examples/jsm/loaders/VOXLoader';
@@ -14,17 +14,18 @@ function App() {
     const test = new SceneInit('myThreeJsCanvas');
     test.initialize();
     test.animate();
-
     
 
     // const geometry = new THREE.PlaneGeometry( 100, 100 );
     // const material = new THREE.MeshPhongMaterial( {color: 0xffffff, side: THREE.DoubleSide} );
     // const plane = new THREE.Mesh( geometry, material );
     // plane.receiveShadow = true;
+    // plane.castShadow = true;
     // plane.rotation.x = Math.PI / -2.0;
-    // plane.position.y = -13;
+    // plane.position.y = -12;
     // plane.position.x = 40;
     // test.scene.add( plane );
+
     const particlesCount = 1000
     const positions = new Float32Array(particlesCount * 3)
 
@@ -37,6 +38,12 @@ function App() {
   })
     const particles = new THREE.Points(particlesGeometry, particlesMaterial)
     const particles2 = new THREE.Points(particlesGeometry, particlesMaterial)
+    for(let i = 0; i < particlesCount; i++)
+    {
+      positions[i * 3 + 0] = (Math.random() - 0.5) * 100
+      positions[i * 3 + 1] = Math.random()
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 100
+    }
     particles.position.y = -20;
     particles2.position.y = -10;
     particles.rotation.x = Math.PI / -2.0;
@@ -44,13 +51,6 @@ function App() {
     
     test.scene.add(particles);
     test.scene.add(particles2);
-
-      for(let i = 0; i < particlesCount; i++)
-    {
-      positions[i * 3 + 0] = (Math.random() - 0.5) * 100
-      positions[i * 3 + 1] = Math.random()
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 100
-    }
 
 
 
@@ -61,8 +61,8 @@ function App() {
       loadedModel = gltfScene;
       // console.log(loadedModel);
       gltfScene.scene.castShadow = true;
+      gltfScene.scene.receiveShadow = true;
       gltfScene.scene.rotation.x = Math.PI / -2.0;
-      gltfScene.scene.rotation.y = Math.PI / 18.0;
       gltfScene.scene.position.y = -12;
       gltfScene.scene.position.x = 18;
       gltfScene.scene.scale.set(4, 4, 4);
